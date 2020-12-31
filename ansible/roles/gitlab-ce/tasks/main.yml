@@ -7,7 +7,6 @@
     path: '/srv/gitlab'
     state: directory
     mode: '0755'
-    register: gitlab_home_dir
 
 - name: start gitlab-ce latest in docker
   shell: |

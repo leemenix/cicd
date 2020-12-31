@@ -7,3 +7,4 @@
         name: gitlab-ce
       vars:
         hostname: 'dev.home.lab'
+        gitlab_home_dir: '/srv/gitlab'
