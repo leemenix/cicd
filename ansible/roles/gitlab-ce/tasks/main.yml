@@ -16,5 +16,5 @@
 - name: set root pass
   shell: |
          docker exec gitlab \
-         gitlab-rails runner "user = User.where(id: 1).first; user.password='${{ secrets.GITLAB_ROOT_PASS }}'; user.password_confirmation='${{ secrets.GITLAB_ROOT_PASS }}'; user.save!"
+         gitlab-rails runner "user = User.where(id: 1).first; user.password='{{ GITLAB_ROOT_PASS }}'; user.password_confirmation='{{ GITLAB_ROOT_PASS }}'; user.save!"
 

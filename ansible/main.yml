@@ -8,3 +8,4 @@
       vars:
         hostname: 'dev.home.lab'
         gitlab_home_dir: '/srv/gitlab'
+        GITLAB_ROOT_PASS: '' # setup your root password
