@@ -1,3 +1,16 @@
 - name: hello from ansible
   debug:
     msg: "yoo"
+
+- name: prepare directory structure on host
+  file:
+    path: '/srv/gitlab'
+    state: directory
+    mode: '0755'
+    register: gitlab_home_dir
+
+- name: start gitlab-ce latest in docker
+  shell: |
+         docker run -d --hostname code.{{ hostname }} -p 80:80 -p 443:443 --name gitlab --restart always \
+         -v {{ gitlab_home_dir }}/logs:/var/log/gitlab -v {{ gitlab_home_dir }}/data:/var/opt/gitlab gitlab/gitlab-ce:latest
+
